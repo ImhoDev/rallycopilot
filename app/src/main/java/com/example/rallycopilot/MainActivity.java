@@ -1,9 +1,11 @@
 package com.example.rallycopilot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -18,12 +20,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
     }
     //Metodo para mostrar los botones de accion
-    public boolean OnCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menuacciones, menu);
-        return true;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menuacciones, menu);
+        return super.onCreateOptionsMenu(menu);
     }
     //Metodo para agregar las acciones de los botones
-    public boolean OnOptionsItemSelected(MenuItem item){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.carrera) {
@@ -38,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Símbolos", Toast.LENGTH_SHORT ).show();
             return true;
         }
-        if (id == R.id.opcion1) {
-            Toast.makeText(this, "Opción 1", Toast.LENGTH_SHORT ).show();
+        if (id == R.id.config) {
+            Toast.makeText(this, "Configuración", Toast.LENGTH_SHORT ).show();
             return true;
         }
-        if (id == R.id.opcion2) {
-            Toast.makeText(this, "Opción 2", Toast.LENGTH_SHORT ).show();
+        if (id == R.id.salir) {
+            Toast.makeText(this, "salir", Toast.LENGTH_SHORT ).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
