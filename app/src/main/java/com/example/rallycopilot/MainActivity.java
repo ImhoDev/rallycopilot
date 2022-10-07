@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.salir) {
             Toast.makeText(this, "salir", Toast.LENGTH_SHORT ).show();
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
